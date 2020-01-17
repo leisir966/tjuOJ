@@ -4,9 +4,11 @@ using namespace std;
 int main(){
 	int first,k,n,temp;
 	cin>>first>>n>>k;
+	//first 第一个数的地址 
 	int data[100005],next[100005],list[100005];
 	for(int i=0;i<n;i++){
 		cin>>temp;
+		//temp是每个数的地址 
 		cin>>data[temp]>>next[temp];
 	}
 	
@@ -14,6 +16,7 @@ int main(){
 	//不一定所有的输入结点都是有用的
 	//加个计数器 
 	while (first!=-1){
+		//当地址不为-1时 存到list表中 
 		list[sum++]=first;
 		first=next[first];
 	}
