@@ -22,7 +22,11 @@ int main()
 	//人数，多选题个数 
 	vector < set<char> > right(m);
 	//每一个迭代器都是 set<char>集合类型的 
+	//set自动排序 ，类似二维数组 
+	 
 	vector<int> total(m),wrongcnt(m);
+	//类似一维数组 
+	
 	for(int i=0;i<m;i++){
 		scanf("%d%d%d",&total[i],&temp,&k);
 		// 满分值，选项个数，正确选项个数 
@@ -38,7 +42,7 @@ int main()
 		int score=0;
 		scanf("\n");
 		for(int j=0;j<m;j++){
-			if(j!=0)scanf(" ");
+			if(j!=0)scanf(" ");//输入格式 
 			scanf("(%d",&k);
 			set<char> st;
 			char c;
@@ -47,20 +51,24 @@ int main()
 				st.insert(c);			
 			} 
 			scanf(")");
+			//一共三个scanf才把一个选项的答案输入 
+			//记住复杂格式的输入方法，机试有用 
 			if(st==right[j]){
 				score+=total[j];
+				//如果两个集合相等 
 			}else{
 				wrongcnt[j]++;
 			}
 			
 		}
 		printf("%d\n",score);
+		//打印每个人的成绩 
 	}
 	int maxwrongcnt=0;
 	for(int i=0;i<m;i++){
 		if(wrongcnt[i]>maxwrongcnt){
 			maxwrongcnt =wrongcnt[i];
-		}
+		}//寻找max 
 		
 	}
 	if(maxwrongcnt==0)
@@ -71,7 +79,7 @@ int main()
 			if(wrongcnt[i]==maxwrongcnt){
 				printf(" %d",i+1);
 			}
-		}
+		}//打印所有最多错题的 题号 
 	}
 		
 	
